@@ -1,0 +1,1 @@
+﻿        WebSocketSharp.Instance.RegistCallback(Cmd{modulename}.{name}, On{name});

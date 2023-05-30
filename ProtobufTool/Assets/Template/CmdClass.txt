@@ -1,0 +1,7 @@
+﻿/// <summary>
+/// {comment}
+/// </summary>
+public class Cmd{name}
+{
+{fields}
+}

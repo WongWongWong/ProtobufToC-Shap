@@ -1,0 +1,10 @@
+﻿{funcNotes}
+    public void {name}({param})
+    {
+        var c2s = new {name}();
+{assugbnebt}
+        WebSocketSharp.Instance.SendDataAsycn(Cmd{modulename}.{name}, c2s);
+
+        ProtobufHelper.Log(c2s);
+    }
+

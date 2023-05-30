@@ -1,0 +1,11 @@
+﻿    /// <summary>
+    /// {comment}
+    /// </summary>
+    /// <param name="proto"></param>
+    /// <param name="clientData"></param>
+    void On{name}(byte[] proto, object clientData)
+    {
+        var s2c = ProtobufHelper.DeSerialize<{name}>(proto);
+        ProtobufHelper.Log(s2c);
+    }
+

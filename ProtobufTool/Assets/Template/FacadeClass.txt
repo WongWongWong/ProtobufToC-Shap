@@ -1,0 +1,18 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+/// <summary>
+/// {comment}
+/// </summary>
+public class Facade{name} : Single<Facade{name}>
+{
+    /// <summary>
+    /// 注册回调函数
+    /// </summary>
+    public void RegisterResp()
+    {
+{register}
+    }
+{function}
+}

@@ -1,0 +1,5 @@
+﻿	/// <summary>
+    /// {comment}
+    /// </summary>
+    public const int {name} = {protocolId};
+	
