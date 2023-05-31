@@ -236,6 +236,9 @@ public class UITool : MonoBehaviour
             FileManager.Ins.ExportFile(cmdString, $"{outputPath}Cmd{module.name}.cs");
             Debug.Log($"{module.name} Cmd生成成功");
         }
+
+        // 打开文件夹
+        Application.OpenURL(outputPath);
     }
 
     void OnClickFacadeOutputBtn()
@@ -265,6 +268,9 @@ public class UITool : MonoBehaviour
             FileManager.Ins.ExportFile(cmdString, $"{outputPath}Facade{module.name}.cs");
             Debug.Log($"{module.name} Facade生成成功");
         }
+
+        // 打开文件夹
+        Application.OpenURL(outputPath);
     }
 
     void OnLog(string condition, string stackTrace, LogType type)
