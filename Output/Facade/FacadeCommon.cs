@@ -20,10 +20,10 @@ public class FacadeCommon : Single<FacadeCommon>
         WebSocketSharp.Instance.RegistCallback(CmdCommon.RespRecordReward, OnRespRecordReward);
 
     }
+
     /// <summary>
     /// 请求心跳
     /// </summary>
-
     public void ReqHeartbeat()
     {
         var c2s = new ReqHeartbeat();
@@ -33,12 +33,12 @@ public class FacadeCommon : Single<FacadeCommon>
         ProtobufHelper.Log(c2s);
     }
 
+
     /// <summary>
     /// 请求重连
     /// </summary>
     /// <param name="LoginCode">登录码</param>
     /// <param name="PlayerId">玩家Id</param>
-
     public void ReqReconnect(string LoginCode, string PlayerId)
     {
         var c2s = new ReqReconnect();
@@ -50,12 +50,12 @@ public class FacadeCommon : Single<FacadeCommon>
         ProtobufHelper.Log(c2s);
     }
 
+
     /// <summary>
     /// 请求记录奖励
     /// </summary>
     /// <param name="RecordId">记录id</param>
     /// <param name="Num">数量</param>
-
     public void ReqRecordReward(string RecordId, int Num)
     {
         var c2s = new ReqRecordReward();

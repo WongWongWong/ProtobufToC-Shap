@@ -117,6 +117,7 @@ public class ProtocolHelper
                     string fieldName = Processing(field.name);// 参数名字
                     #region 生成参数说明注释
                     {
+                        funcNotes += "\n";
                         funcNotes += FuncNotesParam.Replace("{name}", fieldName).Replace("{comment}", field.comment);
                     }
                     #endregion

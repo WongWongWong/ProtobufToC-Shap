@@ -275,7 +275,7 @@ public class UITool : MonoBehaviour
 
     void OnLog(string condition, string stackTrace, LogType type)
     {
-        string text = $"[{Enum.GetName(typeof(LogType), type)}] {condition}";
+        string text = $"[{DateTime.Now.ToShortDateString()} {DateTime.Now.ToLongTimeString()}] [{Enum.GetName(typeof(LogType), type)}] {condition}";
 
         if (type == LogType.Exception || type == LogType.Error)
         {

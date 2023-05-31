@@ -1,4 +1,5 @@
-﻿{funcNotes}
+﻿
+{funcNotes}
     public void {name}({param})
     {
         var c2s = new {name}();
