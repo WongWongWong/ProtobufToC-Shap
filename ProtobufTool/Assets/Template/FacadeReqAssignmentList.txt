@@ -1,1 +1,1 @@
-﻿        c2s.{name}.AddRang({name});
+﻿        c2s.{name}.AddRange({name});

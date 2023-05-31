@@ -75,7 +75,7 @@ public class UITool : MonoBehaviour
     void Start()
     {
         SaveButton.onClick.AddListener(OnClickSaveBtn);
-        DelButton.onClick.AddListener(OnClickDelBtn);
+        //DelButton.onClick.AddListener(OnClickDelBtn);
         CmdOutputButton.onClick.AddListener(OnClickCmdOutputBtn);
         FacadeOutputButton.onClick.AddListener(OnClickFacadeOutputBtn);
 
@@ -185,7 +185,7 @@ public class UITool : MonoBehaviour
         Debug.Log($"保存项目:{_cache.curProjectName}");
     }
 
-    void OnClickDelBtn()
+    public void OnClickDelBtn()
     {
         if (_cache.allProject.Count == 0)
         {
