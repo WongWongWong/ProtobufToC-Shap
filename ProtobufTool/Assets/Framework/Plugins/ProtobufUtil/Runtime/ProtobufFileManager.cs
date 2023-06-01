@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ProtobufPacking
 {
-    public static class FileManager
+    public static class ProtobufFileManager
     {
         /// <summary>
         /// 生成文件

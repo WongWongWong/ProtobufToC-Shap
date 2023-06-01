@@ -28,7 +28,7 @@ namespace ProtobufPacking
         /// <returns></returns>
         public static ModuleVo LoadModule(string path)
         {
-            string text = FileManager.GetTextStream(path);
+            string text = ProtobufFileManager.GetTextStream(path);
             ModuleVo ret = LitJson.JsonMapper.ToObject<ModuleVo>(text);
             ret.name = Processing(ret.name);
             return ret;
@@ -42,7 +42,7 @@ namespace ProtobufPacking
         public static List<ModuleVo> LoadAllModule(string path)
         {
             List<ModuleVo> ret = new List<ModuleVo>();
-            var locations = FileManager.GetFilePathList(path);
+            var locations = ProtobufFileManager.GetFilePathList(path);
             foreach (string location in locations)
             {
                 var vo = LoadModule(location);
@@ -216,7 +216,7 @@ namespace ProtobufPacking
                 outputPath += "/";
 
             // 检测创建路径
-            FileManager.CreateDirPath(outputPath);
+            ProtobufFileManager.CreateDirPath(outputPath);
 
             // 生成文件
             var modules = LoadAllModule(protoJsonPath);
@@ -226,7 +226,7 @@ namespace ProtobufPacking
                 if (string.IsNullOrEmpty(cmdString))
                     continue;
 
-                FileManager.ExportFile(cmdString, $"{outputPath}Cmd{module.name}.cs");
+                ProtobufFileManager.ExportFile(cmdString, $"{outputPath}Cmd{module.name}.cs");
                 Debug.Log($"{module.name} Cmd生成成功");
             }
 
@@ -242,7 +242,7 @@ namespace ProtobufPacking
                 outputPath += "/";
 
             // 检测创建路径
-            FileManager.CreateDirPath(outputPath);
+            ProtobufFileManager.CreateDirPath(outputPath);
 
             // 生成文件
             var modules = LoadAllModule(protoJsonPath);
@@ -252,7 +252,7 @@ namespace ProtobufPacking
                 if (string.IsNullOrEmpty(cmdString))
                     continue;
 
-                FileManager.ExportFile(cmdString, $"{outputPath}Facade{module.name}.cs");
+                ProtobufFileManager.ExportFile(cmdString, $"{outputPath}Facade{module.name}.cs");
                 Debug.Log($"{module.name} Facade生成成功");
             }
 
