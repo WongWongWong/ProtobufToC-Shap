@@ -205,6 +205,62 @@ namespace ProtobufPacking
         }
 
         /// <summary>
+        /// cmd输出
+        /// </summary>
+        /// <param name="protoJsonPath"></param>
+        /// <param name="outputPath"></param>
+        public static void CmdOutput(string protoJsonPath, string outputPath)
+        {
+            // 补全斜杠
+            if (!outputPath.EndsWith("/"))
+                outputPath += "/";
+
+            // 检测创建路径
+            FileManager.CreateDirPath(outputPath);
+
+            // 生成文件
+            var modules = LoadAllModule(protoJsonPath);
+            foreach (var module in modules)
+            {
+                string cmdString = GenerateCmdString(module);
+                if (string.IsNullOrEmpty(cmdString))
+                    continue;
+
+                FileManager.ExportFile(cmdString, $"{outputPath}Cmd{module.name}.cs");
+                Debug.Log($"{module.name} Cmd生成成功");
+            }
+
+            // 打开文件夹
+            Application.OpenURL(outputPath);
+        }
+
+
+        public static void FacadeOutput(string protoJsonPath, string outputPath)
+        {
+            // 补全斜杠
+            if (!outputPath.EndsWith("/"))
+                outputPath += "/";
+
+            // 检测创建路径
+            FileManager.CreateDirPath(outputPath);
+
+            // 生成文件
+            var modules = LoadAllModule(protoJsonPath);
+            foreach (var module in modules)
+            {
+                string cmdString = GenerateFacadeString(module);
+                if (string.IsNullOrEmpty(cmdString))
+                    continue;
+
+                FileManager.ExportFile(cmdString, $"{outputPath}Facade{module.name}.cs");
+                Debug.Log($"{module.name} Facade生成成功");
+            }
+
+            // 打开文件夹
+            Application.OpenURL(outputPath);
+        }
+
+        /// <summary>
         /// 首字母大写
         /// </summary>
         /// <param name="str"></param>

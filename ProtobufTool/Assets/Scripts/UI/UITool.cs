@@ -219,27 +219,7 @@ public class UITool : MonoBehaviour
             return;
         }
 
-        // 补全斜杠
-        if (!outputPath.EndsWith("/"))
-            outputPath += "/";
-
-        // 检测创建路径
-        FileManager.CreateDirPath(outputPath);
-
-        // 生成文件
-        var modules = ProtocolHelper.LoadAllModule(ProtoPathInput.text);
-        foreach (var module in modules)
-        {
-            string cmdString = ProtocolHelper.GenerateCmdString(module);
-            if (string.IsNullOrEmpty(cmdString))
-                continue;
-
-            FileManager.ExportFile(cmdString, $"{outputPath}Cmd{module.name}.cs");
-            Debug.Log($"{module.name} Cmd生成成功");
-        }
-
-        // 打开文件夹
-        Application.OpenURL(outputPath);
+        ProtocolHelper.CmdOutput(ProtoPathInput.text, outputPath);
     }
 
     void OnClickFacadeOutputBtn()
@@ -251,27 +231,7 @@ public class UITool : MonoBehaviour
             return;
         }
 
-        // 补全斜杠
-        if (!outputPath.EndsWith("/"))
-            outputPath += "/";
-
-        // 检测创建路径
-        FileManager.CreateDirPath(outputPath);
-
-        // 生成文件
-        var modules = ProtocolHelper.LoadAllModule(ProtoPathInput.text);
-        foreach (var module in modules)
-        {
-            string cmdString = ProtocolHelper.GenerateFacadeString(module);
-            if (string.IsNullOrEmpty(cmdString))
-                continue;
-
-            FileManager.ExportFile(cmdString, $"{outputPath}Facade{module.name}.cs");
-            Debug.Log($"{module.name} Facade生成成功");
-        }
-
-        // 打开文件夹
-        Application.OpenURL(outputPath);
+        ProtocolHelper.FacadeOutput(ProtoPathInput.text, outputPath);
     }
 
     void OnLog(string condition, string stackTrace, LogType type)
