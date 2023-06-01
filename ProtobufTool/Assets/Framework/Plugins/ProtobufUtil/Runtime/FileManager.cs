@@ -5,18 +5,14 @@ using UnityEngine;
 
 namespace ProtobufPacking
 {
-    public class FileManager
+    public static class FileManager
     {
-        static FileManager _ins = new FileManager();
-        public static FileManager Ins { get { return _ins; } }
-        private FileManager() { }
-
         /// <summary>
         /// 生成文件
         /// </summary>
         /// <param name="json"></param>
         /// <param name="exprotPath"></param>
-        public void ExportFile(string context, string exprotPath)
+        public static void ExportFile(string context, string exprotPath)
         {
             if (File.Exists(exprotPath))
             {
@@ -34,7 +30,7 @@ namespace ProtobufPacking
         /// </summary>
         /// <param name="dirPath"></param>
         /// <returns></returns>
-        public void CreateDirPath(string dirPath)
+        public static void CreateDirPath(string dirPath)
         {
             DirectoryInfo mydir = new DirectoryInfo(dirPath);
             if (mydir.Exists)
@@ -50,7 +46,7 @@ namespace ProtobufPacking
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        public FileStream GetFileStream(string path)
+        public static FileStream GetFileStream(string path)
         {
             FileStream fileStream = File.Open(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
             return fileStream;
@@ -61,7 +57,7 @@ namespace ProtobufPacking
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        public string GetTextStream(string path)
+        public static string GetTextStream(string path)
         {
             StreamReader stream = File.OpenText(path);
             string ret = stream.ReadToEnd();
@@ -74,7 +70,7 @@ namespace ProtobufPacking
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        public List<string> GetFilePathList(string path, string endsWith = ".json")
+        public static List<string> GetFilePathList(string path, string endsWith = ".json")
         {
             List<string> ret = new List<string>();
 

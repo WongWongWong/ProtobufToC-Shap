@@ -28,7 +28,7 @@ namespace ProtobufPacking
         /// <returns></returns>
         public static ModuleVo LoadModule(string path)
         {
-            string text = FileManager.Ins.GetTextStream(path);
+            string text = FileManager.GetTextStream(path);
             ModuleVo ret = LitJson.JsonMapper.ToObject<ModuleVo>(text);
             ret.name = Processing(ret.name);
             return ret;
@@ -42,7 +42,7 @@ namespace ProtobufPacking
         public static List<ModuleVo> LoadAllModule(string path)
         {
             List<ModuleVo> ret = new List<ModuleVo>();
-            var locations = FileManager.Ins.GetFilePathList(path);
+            var locations = FileManager.GetFilePathList(path);
             foreach (string location in locations)
             {
                 var vo = LoadModule(location);

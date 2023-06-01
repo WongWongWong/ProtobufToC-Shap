@@ -224,7 +224,7 @@ public class UITool : MonoBehaviour
             outputPath += "/";
 
         // 检测创建路径
-        FileManager.Ins.CreateDirPath(outputPath);
+        FileManager.CreateDirPath(outputPath);
 
         // 生成文件
         var modules = ProtocolHelper.LoadAllModule(ProtoPathInput.text);
@@ -234,7 +234,7 @@ public class UITool : MonoBehaviour
             if (string.IsNullOrEmpty(cmdString))
                 continue;
 
-            FileManager.Ins.ExportFile(cmdString, $"{outputPath}Cmd{module.name}.cs");
+            FileManager.ExportFile(cmdString, $"{outputPath}Cmd{module.name}.cs");
             Debug.Log($"{module.name} Cmd生成成功");
         }
 
@@ -256,7 +256,7 @@ public class UITool : MonoBehaviour
             outputPath += "/";
 
         // 检测创建路径
-        FileManager.Ins.CreateDirPath(outputPath);
+        FileManager.CreateDirPath(outputPath);
 
         // 生成文件
         var modules = ProtocolHelper.LoadAllModule(ProtoPathInput.text);
@@ -266,7 +266,7 @@ public class UITool : MonoBehaviour
             if (string.IsNullOrEmpty(cmdString))
                 continue;
 
-            FileManager.Ins.ExportFile(cmdString, $"{outputPath}Facade{module.name}.cs");
+            FileManager.ExportFile(cmdString, $"{outputPath}Facade{module.name}.cs");
             Debug.Log($"{module.name} Facade生成成功");
         }
 
