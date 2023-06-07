@@ -20,11 +20,11 @@ public class FacadeAttr : Single<FacadeAttr>
     /// <summary>
     /// 请求玩家所有属性信息
     /// </summary>
-    public void ReqPlayerAllAttrVoInfo()
+    public void ReqPlayerAllAttrVoInfo(object clientData = null)
     {
         var c2s = new ReqPlayerAllAttrVoInfo();
 
-        WebSocketSharp.Instance.SendDataAsycn(CmdAttr.ReqPlayerAllAttrVoInfo, c2s);
+        WebSocketSharp.Instance.SendDataAsycn(CmdAttr.ReqPlayerAllAttrVoInfo, c2s, clientData);
 
         ProtobufHelper.Log(c2s);
     }
@@ -34,12 +34,12 @@ public class FacadeAttr : Single<FacadeAttr>
     /// 请求玩家属性信息
     /// </summary>
     /// <param name="AttrType">属性Vo类型</param>
-    public void ReqPlayerAttrVoInfo(string AttrType)
+    public void ReqPlayerAttrVoInfo(string AttrType, object clientData = null)
     {
         var c2s = new ReqPlayerAttrVoInfo();
         c2s.AttrType = AttrType;
 
-        WebSocketSharp.Instance.SendDataAsycn(CmdAttr.ReqPlayerAttrVoInfo, c2s);
+        WebSocketSharp.Instance.SendDataAsycn(CmdAttr.ReqPlayerAttrVoInfo, c2s, clientData);
 
         ProtobufHelper.Log(c2s);
     }

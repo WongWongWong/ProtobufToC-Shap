@@ -4,7 +4,7 @@
     {
         var c2s = new {name}();
 {assugbnebt}
-        WebSocketSharp.Instance.SendDataAsycn(Cmd{modulename}.{name}, c2s);
+        WebSocketSharp.Instance.SendDataAsycn(Cmd{modulename}.{name}, c2s, clientData);
 
         ProtobufHelper.Log(c2s);
     }

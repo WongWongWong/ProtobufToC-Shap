@@ -169,6 +169,11 @@ namespace ProtobufPacking
                         #endregion
                     }
 
+                    // 在传参生成之后，拼接客户端自定义参数
+                    if (param.Length > 0)
+                        param += ", ";
+                    param += "object clientData = null";
+
                     // 生成函数字符串
                     string reqFunctionStr = FacadeReq.Replace("{funcNotes}", funcNotes);
                     reqFunctionStr = reqFunctionStr.Replace("{name}", protocolVo.name).Replace("{name}", protocolVo.name).Replace("{name}", protocolVo.name);

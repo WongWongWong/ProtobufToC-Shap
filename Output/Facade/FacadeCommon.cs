@@ -24,11 +24,11 @@ public class FacadeCommon : Single<FacadeCommon>
     /// <summary>
     /// 请求心跳
     /// </summary>
-    public void ReqHeartbeat()
+    public void ReqHeartbeat(object clientData = null)
     {
         var c2s = new ReqHeartbeat();
 
-        WebSocketSharp.Instance.SendDataAsycn(CmdCommon.ReqHeartbeat, c2s);
+        WebSocketSharp.Instance.SendDataAsycn(CmdCommon.ReqHeartbeat, c2s, clientData);
 
         ProtobufHelper.Log(c2s);
     }
@@ -39,13 +39,13 @@ public class FacadeCommon : Single<FacadeCommon>
     /// </summary>
     /// <param name="LoginCode">登录码</param>
     /// <param name="PlayerId">玩家Id</param>
-    public void ReqReconnect(string LoginCode, string PlayerId)
+    public void ReqReconnect(string LoginCode, string PlayerId, object clientData = null)
     {
         var c2s = new ReqReconnect();
         c2s.LoginCode = LoginCode;
         c2s.PlayerId = PlayerId;
 
-        WebSocketSharp.Instance.SendDataAsycn(CmdCommon.ReqReconnect, c2s);
+        WebSocketSharp.Instance.SendDataAsycn(CmdCommon.ReqReconnect, c2s, clientData);
 
         ProtobufHelper.Log(c2s);
     }
@@ -56,13 +56,13 @@ public class FacadeCommon : Single<FacadeCommon>
     /// </summary>
     /// <param name="RecordId">记录id</param>
     /// <param name="Num">数量</param>
-    public void ReqRecordReward(string RecordId, int Num)
+    public void ReqRecordReward(string RecordId, int Num, object clientData = null)
     {
         var c2s = new ReqRecordReward();
         c2s.RecordId = RecordId;
         c2s.Num = Num;
 
-        WebSocketSharp.Instance.SendDataAsycn(CmdCommon.ReqRecordReward, c2s);
+        WebSocketSharp.Instance.SendDataAsycn(CmdCommon.ReqRecordReward, c2s, clientData);
 
         ProtobufHelper.Log(c2s);
     }

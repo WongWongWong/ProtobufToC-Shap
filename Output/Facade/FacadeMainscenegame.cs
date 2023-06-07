@@ -23,12 +23,12 @@ public class FacadeMainscenegame : Single<FacadeMainscenegame>
     /// 请求主场景游戏简易信息
     /// </summary>
     /// <param name="GameTypeList">游戏类型List(空列表表示全发)</param>
-    public void ReqMainSceneGameSimpleInfo(List<int> GameTypeList)
+    public void ReqMainSceneGameSimpleInfo(List<int> GameTypeList, object clientData = null)
     {
         var c2s = new ReqMainSceneGameSimpleInfo();
         c2s.GameTypeList.AddRange(GameTypeList);
 
-        WebSocketSharp.Instance.SendDataAsycn(CmdMainscenegame.ReqMainSceneGameSimpleInfo, c2s);
+        WebSocketSharp.Instance.SendDataAsycn(CmdMainscenegame.ReqMainSceneGameSimpleInfo, c2s, clientData);
 
         ProtobufHelper.Log(c2s);
     }
